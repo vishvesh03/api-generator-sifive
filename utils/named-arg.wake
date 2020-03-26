@@ -1,3 +1,10 @@
+# A named argument for a command-line command.
+#
+# This represents pairs of name-value argument pairs, e.g. --verbosity 2 would
+# have a key of "--verbosity" and a value of 2.
+#
+# Note that this also represents unnamed arguments with the NamedArg constructor
+# that does not take a second argument.
 global data NamedArg =
   NamedArg        String
   NamedArgInteger String Integer
@@ -33,22 +40,25 @@ def namedArgToListString dir namedArg =
     None       = name, Nil
     Some value = name, value, Nil
 
-def namedArgValueEquals = match _ _
-  (NamedArg        _   ) (NamedArg        _   ) = True
-  (NamedArgInteger _ i1) (NamedArgInteger _ i2) = i1 == i2
-  (NamedArgDouble  _ d1) (NamedArgDouble  _ d2) = d1 ==. d2
-  (NamedArgString  _ s1) (NamedArgString  _ s2) = s1 ==~ s2
-  (NamedArgPath    _ p1) (NamedArgPath    _ p2) = p1.getPathName ==~ p2.getPathName
-  _ _ = False
-
-def namedArgEquals a1 a2 =
-  a1.getNamedArgName ==~ a2.getNamedArgName
-  && namedArgValueEquals a1 a2
-
+# Render a list of NamedArgs to a list of command-line argument strings.
+#
+# Creates a separate list item for each component of the NamedArg pairs,
+# resolving any Paths to strings containing paths relative to `dir`.
+#
+# namedArgsToListString: (dir: String) => (namedArgs: List NamedArg) => List String
 global def namedArgsToListString dir namedArgs =
   namedArgs
   | map (namedArgToListString dir _)
   | flatten
 
+# Render a list of NamedArgs to a list of command-line argument strings.
+#
+# (dir: String) => Combines with NamedArgPath to construct a relative path.
+#   Generally should be set to the the current working directory of the command.
+# (prefix: String) => A prefix to use with each argument name, such as "--"
+# (separator: String) => A string that separates the name from the argument,
+#   such as "="
+# (namedArgs: List NamedArg) => List of `NamedArgs`
+# List String
 global def namedArgsToCmdline dir prefix separator namedArgs =
   map ("{prefix}{namedArgToString dir separator _}") namedArgs
