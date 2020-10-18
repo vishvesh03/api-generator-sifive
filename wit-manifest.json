@@ -1,6 +1,6 @@
 [
     {
-        "commit": "4db478012c88718e51af08f706d0dde8aaf6efa5",
+        "commit": "3aef5efb29412cceab61e5911ca82cf873557497",
         "name": "freedom-metal",
         "source": "git@github.com:sifive/freedom-metal.git"
     },
@@ -20,12 +20,6 @@
         "source": "git@github.com:sifive/api-languages-sifive.git"
     },
     {
-        "//": "This commit is v0.1.5",
-        "commit": "df72f3c1d7fcadde3579befe1d7a05eed334c56f",
-        "name": "scribble-testsocket-sifive",
-        "source": "git@github.com:sifive/scribble-testsocket-sifive.git"
-    },
-    {
         "commit": "6b8201670e686277f2e3e8af2d5ef78d42900b13",
         "name": "devicetree-overlay-generator",
         "source": "git@github.com:sifive/devicetree-overlay-generator.git"
@@ -36,7 +30,7 @@
         "source": "git@github.com:sifive/esdk-settings-generator.git"
     },
     {
-        "commit": "64d212b6c579da1a5e211fba41de2926ff880069",
+        "commit": "24a49b585207063e863267d3ece8a287dcf1b2d1",
         "name": "ldscript-generator",
         "source": "git@github.com:sifive/ldscript-generator.git"
     },
