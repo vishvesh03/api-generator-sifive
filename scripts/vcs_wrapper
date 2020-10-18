@@ -15,6 +15,12 @@ for file in $files; do
   file_args+=( "$file" )
 done
 
+filelists="$WAKE_IP_RESOURCE_FILELIST"
+filelistargs=( )
+for filelist in $filelists; do
+ filelistargs+=(-f "$filelist")
+done
+
 static_libs="$WAKE_IP_HDL_SIM_STATIC_LIBRARIES"
 static_lib_args=( )
 for static_lib in $static_libs; do
@@ -29,4 +35,4 @@ done
 
 IFS="$OIFS"
 
-vcs "${file_args[@]}" "${include_args[@]}" "${static_lib_args[@]}" "${pli_tab_args[@]}" "$@"
+vcs "${file_args[@]}" "${include_args[@]}" "${filelistargs[@]}" "${static_lib_args[@]}" "${pli_tab_args[@]}" "$@"
