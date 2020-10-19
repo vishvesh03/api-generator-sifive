@@ -16,9 +16,9 @@ for file in $files; do
 done
 
 filelists="$WAKE_IP_RESOURCE_FILELIST"
-filelistargs=( )
+filelist_args=( )
 for filelist in $filelists; do
- filelistargs+=(-F "$filelist")
+ filelist_args+=(-F "$filelist")
 
 libraries="$WAKE_IP_RESOURCE_LIBRARIES"
 library_args=( )
@@ -40,5 +40,5 @@ done
 
 IFS="$OIFS"
 
-vcs "${file_args[@]}" "${include_args[@]}" "${filelistargs[@]}" "${library_args[@]}" "${static_lib_args[@]}" "${pli_tab_args[@]}" "$@"
+vcs "${file_args[@]}" "${include_args[@]}" "${filelist_args[@]}" "${library_args[@]}" "${static_lib_args[@]}" "${pli_tab_args[@]}" "$@"
 
