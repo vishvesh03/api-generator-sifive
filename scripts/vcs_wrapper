@@ -15,7 +15,7 @@ for file in $files; do
   file_args+=( "$file" )
 done
 
-filelists="$WAKE_IP_RESOURCE_FILELIST"
+filelists="$WAKE_IP_RESOURCE_FILELISTS"
 filelist_args=( )
 for filelist in $filelists; do
  filelist_args+=(-F "$filelist")
