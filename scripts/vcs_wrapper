@@ -18,7 +18,7 @@ done
 filelists="$WAKE_IP_RESOURCE_FILELIST"
 filelistargs=( )
 for filelist in $filelists; do
- filelistargs+=(-f "$filelist")
+ filelistargs+=(-F "$filelist")
 
 libraries="$WAKE_IP_RESOURCE_LIBRARIES"
 library_args=( )
