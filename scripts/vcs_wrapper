@@ -41,4 +41,3 @@ done
 IFS="$OIFS"
 
 vcs "${file_args[@]}" "${include_args[@]}" "${filelist_args[@]}" "${library_args[@]}" "${static_lib_args[@]}" "${pli_tab_args[@]}" "$@"
-
